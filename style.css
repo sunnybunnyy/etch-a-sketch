@@ -3,16 +3,36 @@
     margin: 0;
 }
 
-#container {
+body {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-content: stretch;
+    flex-direction: column;
     height: 100vh;
 }
 
-.square {
+.container {
     display: flex;
+    flex-wrap: wrap;
     flex: auto;
-    width: 25vw;
+    justify-content: center;
+    align-content: stretch;
+}
+
+#button {
+    display:flex;
+    justify-content: center;
+    padding: 10px;
+    background-color: whitesmoke;
+}
+
+#grid-size {
+    border: 0;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: medium;
+    color: whitesmoke;
+    background-color: dimgray;
+}
+
+#grid-size:hover {
+    background-color: gray;
 }
