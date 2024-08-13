@@ -20,7 +20,10 @@ function drawTrail() {
     const squares = document.querySelectorAll('.square');
     squares.forEach((square) => {
         square.addEventListener('mouseenter', () => {
-            square.style.backgroundColor = 'dimgray';
+            const redVal = Math.round(Math.random() * 255).toString();
+            const greenVal = Math.round(Math.random() * 255).toString();
+            const blueVal = Math.round(Math.random() * 255).toString();
+            square.style.backgroundColor = `rgb(${redVal}, ${greenVal}, ${blueVal})`; 
         });
     });
 }
@@ -31,6 +34,10 @@ function askGridSize() {
     const gridLength = prompt(`Enter the number of squares per side for the grid.\nThe maximum is 100.`);
     if (gridLength > 100) {
         alert("Enter a number that is 100 or less.");
+        return;
+    }
+
+    if (!gridLength) {
         return;
     }
 
