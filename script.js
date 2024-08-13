@@ -13,6 +13,7 @@ function createGrid(gridLength) {
         square.classList.add('square');
         container.appendChild(square);
         square.style.width = (100 / gridLength).toString() + 'vw';
+        square.style.opacity = '0';
     }
 }
 
@@ -20,10 +21,22 @@ function drawTrail() {
     const squares = document.querySelectorAll('.square');
     squares.forEach((square) => {
         square.addEventListener('mouseenter', () => {
-            const redVal = Math.round(Math.random() * 255).toString();
-            const greenVal = Math.round(Math.random() * 255).toString();
-            const blueVal = Math.round(Math.random() * 255).toString();
-            square.style.backgroundColor = `rgb(${redVal}, ${greenVal}, ${blueVal})`; 
+            let currOpacity = Number(getComputedStyle(square).getPropertyValue('opacity'));
+            if (currOpacity === 0) {
+                const redVal = Math.round(Math.random() * 255).toString();
+                const greenVal = Math.round(Math.random() * 255).toString();
+                const blueVal = Math.round(Math.random() * 255).toString();
+                square.style.backgroundColor = `rgb(${redVal}, ${greenVal}, ${blueVal})`;    
+                
+            }
+            console.log("currOpacity = " + currOpacity);
+            // Why is currOpacity always 0?
+            let newOpacity = (currOpacity + 0.1).toString();
+            console.log("newOpacity = " + newOpacity);
+            square.style.opacity = newOpacity;
+            console.log("real opacity: " + typeof getComputedStyle(square).getPropertyValue('opacity'));
+            console.log("newOpacity: " + typeof newOpacity);
+            console.log("square.style.opacity = " + getComputedStyle(square).getPropertyValue('opacity'));
         });
     });
 }
