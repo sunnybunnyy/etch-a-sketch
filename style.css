@@ -1,0 +1,18 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+#container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: stretch;
+    height: 100vh;
+}
+
+.square {
+    display: flex;
+    flex: auto;
+    width: 25vw;
+}
